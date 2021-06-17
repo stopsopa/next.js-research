@@ -1,6 +1,8 @@
 
 import React, { Fragment } from 'react';
 
+import { useRouter } from 'next/router'
+
 import Head from 'next/head'
 
 import Link from 'next/link'
@@ -19,6 +21,9 @@ const RedLink = React.forwardRef((props, ref) => {
 // );
 
 export default function Home() {
+
+  const { push } = useRouter()
+
   return (
     <div className="container">
 
@@ -102,6 +107,9 @@ export default function Home() {
           >
             <a>{`/blog/predefined-segment/predefined`}</a>
           </Link>
+          <br/>
+          {/*https://nextjs.org/docs/routing/imperatively*/}
+          <button onClick={() => push('/blog/button-segment/predefined?push=ok')}>navigating with button (onClick)</button>
         </div>
       </main>
 
