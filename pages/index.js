@@ -110,6 +110,15 @@ export default function Home() {
           <br/>
           {/*https://nextjs.org/docs/routing/imperatively*/}
           <button onClick={() => push('/blog/button-segment/predefined?push=ok')}>navigating with button (onClick)</button>
+          <hr/>
+          <h4>static-site generator (SSG)</h4>
+          <Link
+            href="/ssg/001simple"
+            as={`/ssg/001simple`}
+          >
+            <a>/ssg/001simple</a>
+          </Link>
+          <br/>
         </div>
       </main>
 
