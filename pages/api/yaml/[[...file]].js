@@ -1,5 +1,5 @@
 /**
- * var r = await fetch('/api/yaml/dir/file'); console.log(await r.json())
+ * var r = await fetch('/api/yaml/abc'); console.log(JSON.stringify(await r.json(), null, 4))
  */
 const path = require('path');
 
@@ -80,9 +80,5 @@ export default function handler(req, res) {
     ;
   }
 
-  res
-    .json({
-      data
-    })
-  ;
+  res.json(data);
 }
