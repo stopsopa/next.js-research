@@ -5,6 +5,8 @@ const {
   fetchJson,
 } = require('../../libs/preconfiguredTransport');
 
+const yamlhandler = require('../../yamlapi/yamlhandler');
+
 export default function Home({
   status,
   list,
@@ -77,7 +79,17 @@ export async function getServerSideProps({ params, res }) {
     // throw new Error(`ssrpageid '${ssrpageid}' doesn't exist on the predefined list ${predefined.join(', ')} `);
   }
 
-  const list = await fetchJson(`/api/yaml/listofthree`);
+
+
+  // Note: You should not use fetch() to call an API route in getStaticProps.
+  // Instead, directly import the logic used inside your API route.
+  // You may need to slightly refactor your code for this approach.
+  //
+  // Fetching from an external API is fine!
+  // from: https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation
+  // const list = await fetchJson(`/api/yaml/listofthree`);
+
+  const list = await yamlhandler('listofthree');
 
   list.push(ssrpageid);
 

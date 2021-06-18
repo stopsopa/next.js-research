@@ -2,6 +2,10 @@
 
 https://nextjs.org/docs/deployment#docker-image
 
+# data fetching
+getStaticProps (Static Generation)
+https://nextjs.org/docs/basic-features/data-fetching
+
 # This demo features
 ## yaml based fake api
 
