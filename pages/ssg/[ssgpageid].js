@@ -50,6 +50,15 @@ export async function getStaticProps({ params }) {
 
   list.push(ssgpageid);
 
+
+  // return {
+  //   redirect: {
+  //     destination: '/',
+  //     permanent: false,
+  //   },
+  // }
+  // from: https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation
+
   // By returning { props: { posts } }, the Blog component
   // will receive `posts` as a prop at build time
   return {
