@@ -111,14 +111,62 @@ export default function Home() {
           {/*https://nextjs.org/docs/routing/imperatively*/}
           <button onClick={() => push('/blog/button-segment/predefined?push=ok')}>navigating with button (onClick)</button>
           <hr/>
-          <h4>static-site generator (SSG)</h4>
+          <h4>Static-site Generator (SSG)</h4>
           <Link
-            href="/ssg/001simple"
-            as={`/ssg/001simple`}
+            href="/ssg/ssg1"
+            as={`/ssg/ssg1`}
           >
-            <a>/ssg/001simple</a>
+            <a>/ssg/ssg1</a>
           </Link>
           <br/>
+          <Link
+            href="/ssg/ssg2"
+            as={`/ssg/ssg2`}
+          >
+            <a>/ssg/ssg2</a>
+          </Link>
+          <br/>
+          <Link
+            href="/ssg/ssg3"
+            as={`/ssg/ssg3`}
+          >
+            <a>/ssg/ssg3</a>
+          </Link>
+          <br/>
+          <Link
+            href="/ssg/ssg4"
+            as={`/ssg/ssg4`}
+          >
+            <a>/ssg/ssg4 - non existing in getStaticPaths</a>
+          </Link>
+          <h4>Server-side Rendering (SSR)</h4>
+          <Link
+            href="/ssr/ssr1"
+            as={`/ssr/ssr1`}
+          >
+            <a>/ssr/ssr1</a>
+          </Link>
+          <br/>
+          <Link
+            href="/ssr/ssr2"
+            as={`/ssr/ssr2`}
+          >
+            <a>/ssr/ssr2</a>
+          </Link>
+          <br/>
+          <Link
+            href="/ssr/ssr3"
+            as={`/ssr/ssr3`}
+          >
+            <a>/ssr/ssr3</a>
+          </Link>
+          <br/>
+          <Link
+            href="/ssr/ssr4"
+            as={`/ssr/ssr4`}
+          >
+            <a>/ssr/ssr4 - non existing in getStaticPaths</a>
+          </Link>
         </div>
       </main>
 
