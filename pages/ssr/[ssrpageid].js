@@ -77,6 +77,11 @@ export async function getServerSideProps({ params, res }) {
     res.statusCode = 404;
 
     // throw new Error(`ssrpageid '${ssrpageid}' doesn't exist on the predefined list ${predefined.join(', ')} `);
+
+    // if not found
+    return {
+      notFound: true, // https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation
+    }
   }
 
 

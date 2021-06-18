@@ -31,7 +31,9 @@ export default function Home({
  * https://nextjs.org/docs/basic-features/pages#scenario-1-your-page-content-depends-on-external-data
  */
 // This function gets called at build time
-export async function getStaticProps({ params }) {
+export async function getStaticProps({
+  params, // https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation
+}) {
 
   const ssgpageid = params.ssgpageid;
 
@@ -49,6 +51,13 @@ export async function getStaticProps({ params }) {
   const list = await yamlhandler('listofthree');
 
   list.push(ssgpageid);
+
+
+  // if not found
+  // return {
+  //   notFound: true, // https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation
+  // }
+  // Note: notFound is not needed for fallback: false mode as only paths returned from getStaticPaths will be pre-rendered.
 
 
   // return {
