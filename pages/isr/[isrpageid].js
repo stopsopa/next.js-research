@@ -29,6 +29,9 @@ export default function Home({
  * https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration
  */
 // This function gets called at build time
+
+// runs only on the server-side. It will never be run on the client-side
+//     from: https://nextjs.org/docs/basic-features/data-fetching#write-server-side-code-directly
 export async function getStaticProps({
   params, // https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation
 }) {
