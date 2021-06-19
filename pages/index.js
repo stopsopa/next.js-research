@@ -111,7 +111,7 @@ export default function Home() {
           {/*https://nextjs.org/docs/routing/imperatively*/}
           <button onClick={() => push('/blog/button-segment/predefined?push=ok')}>navigating with button (onClick)</button>
           <hr/>
-          <h4>Static-site Generator (SSG)</h4>
+          <h4 id="ssg">Static-site Generator (SSG)</h4>
           <Link
             href="/ssg/ssg1"
             as={`/ssg/ssg1`}
@@ -139,7 +139,7 @@ export default function Home() {
           >
             <a>/ssg/ssg4 - non existing in getStaticPaths</a>
           </Link>
-          <h4>Server-side Rendering (SSR)</h4>
+          <h4 id="ssr">Server-side Rendering (SSR)</h4>
           <Link
             href="/ssr/ssr1"
             as={`/ssr/ssr1`}
@@ -167,9 +167,43 @@ export default function Home() {
           >
             <a>/ssr/ssr4 - non existing in getStaticPaths</a>
           </Link>
+          <h4 id="isr">Incremental Static Regeneration (ISR)</h4>
+          <Link
+            href="/isr/isr1"
+            as={`/isr/isr1`}
+          >
+            <a>/isr/isr1</a>
+          </Link>
+          <br/>
+          <Link
+            href="/isr/isr2"
+            as={`/isr/isr2`}
+          >
+            <a>/isr/isr2</a>
+          </Link>
+          <br/>
+          <Link
+            href="/isr/isr3"
+            as={`/isr/isr3`}
+          >
+            <a>/isr/isr3</a>
+          </Link>
+          <br/>
+          <Link
+            href="/isr/isr4"
+            as={`/isr/isr4`}
+          >
+            <a>/isr/isr4 - non existing in getStaticPaths</a>
+          </Link>
+          <br/>
+          <Link
+            href="/isr/isr5"
+            as={`/isr/isr5`}
+          >
+            <a>/isr/isr4 - one more</a>
+          </Link>
         </div>
       </main>
-
       <footer>
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
@@ -180,7 +214,6 @@ export default function Home() {
           <img src="/vercel.svg" alt="Vercel" className="logo" />
         </a>
       </footer>
-
       <style jsx>{`
         .container {
           min-height: 100vh;
@@ -216,7 +249,6 @@ export default function Home() {
           }
         }
       `}</style>
-
       <style jsx global>{`
         html,
         body {

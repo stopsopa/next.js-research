@@ -5,7 +5,7 @@ const {
   fetchJson,
 } = require('../../libs/preconfiguredTransport');
 
-const yamlhandler = require('../../yamlapi/yamlhandler');
+const yamlhandler = eval('require')('../../yamlapi/yamlhandler');
 
 export default function Home({
   status,
@@ -21,7 +21,7 @@ export default function Home({
         ))}
       </ul>
 
-      <Link href="/">
+      <Link href="/#ssr" as="/#ssr">
         <a>Home</a>
       </Link>
       <br/>
@@ -31,39 +31,8 @@ export default function Home({
 }
 
 /**
- * https://nextjs.org/docs/basic-features/pages#scenario-1-your-page-content-depends-on-external-data
+ * https://nextjs.org/docs/basic-features/pages#server-side-rendering
  */
-// This function gets called at build time
-// export async function getStaticProps({ params }) {
-//
-//   const ssrpageid = params.ssrpageid;
-//
-//   console.log(`ssr/* getStaticProps() ssrpageid: ${ssrpageid}`);
-//
-//   const list = await fetchJson(`/api/yaml/listofthree`);
-//
-//   list.push(ssrpageid);
-//
-//   // By returning { props: { posts } }, the Blog component
-//   // will receive `posts` as a prop at build time
-//   return {
-//     props: {
-//       list,
-//     },
-//   }
-// }
-// export async function getServerSideProps({ res }) {
-//   const data = await fetch("https://api.github.com/repos/vercel/next.js");
-//   const errorCode = data.ok ? false : data.statusCode;
-//   if (errorCode) {
-//     res.statusCode = errorCode;
-//   }
-//   const json = await data.json();
-//
-//   return {
-//     props: { errorCode, stars: json.stargazers_count }
-//   };
-// }
 export async function getServerSideProps({ params, res }) {
 
   const ssrpageid = params.ssrpageid;
@@ -92,9 +61,9 @@ export async function getServerSideProps({ params, res }) {
   //
   // Fetching from an external API is fine!
   // from: https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation
-  // const list = await fetchJson(`/api/yaml/listofthree`);
+  const list = await fetchJson(`/api/yaml/listofthree`);
 
-  const list = await yamlhandler('listofthree');
+  // const list = await yamlhandler('listofthree');
 
   list.push(ssrpageid);
 
@@ -106,24 +75,3 @@ export async function getServerSideProps({ params, res }) {
     }
   }
 }
-
-// export async function getStaticPaths() {
-//
-//   console.log(`ssr/* getStaticPaths() return ssr*(x3)`);
-//
-//   // // Call an external API endpoint to get posts
-//   // const res = await fetch('https://.../posts')
-//   //
-//   // const posts = await res.json()
-//
-//   // Get the paths we want to pre-render based on posts
-//   const paths = [
-//     { params: { ssrpageid: 'ssr1' }, },
-//     { params: { ssrpageid: 'ssr2' }, },
-//     { params: { ssrpageid: 'ssr3' }, },
-//   ]
-//
-//   // We'll pre-render only these paths at build time.
-//   // { fallback: false } means other routes should 404.
-//   return { paths, fallback: false }
-// }

@@ -9,7 +9,8 @@ const yaml = require('js-yaml');
 
 import getConfig from 'next/config'
 
-const yamldir = path.resolve(getConfig().serverRuntimeConfig.root, 'yamlapi');
+// const yamldir = path.resolve(getConfig().serverRuntimeConfig.root, 'yamlapi');
+const yamldir = path.resolve(process.cwd(), 'yamlapi');
 
 if ( ! fs.existsSync(yamldir) ) {
 

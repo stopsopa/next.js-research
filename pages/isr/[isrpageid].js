@@ -13,14 +13,14 @@ export default function Home({
 
   return (
     <div>
-      <h1>Static-site Generator (SSG)</h1>
+      <h1>Incremental Static Regeneration (ISR)</h1>
       <ul>
         {Array.isArray(list) && list.map(l => (
           <li key={l}>{l}</li>
         ))}
       </ul>
 
-      <Link href="/#ssg" as="/#ssg">
+      <Link href="/#isr" as="/#isr">
         <a>Home</a>
       </Link>
     </div>
@@ -28,16 +28,16 @@ export default function Home({
 }
 
 /**
- * https://nextjs.org/docs/basic-features/pages#scenario-1-your-page-content-depends-on-external-data
+ * https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration
  */
 // This function gets called at build time
 export async function getStaticProps({
   params, // https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation
 }) {
 
-  const ssgpageid = params.ssgpageid;
+  const isrpageid = params.isrpageid;
 
-  console.log(`ssg/* getStaticProps() ssgpageid: ${ssgpageid}`);
+  console.log(`isr/* getStaticProps() isrpageid: ${isrpageid}`);
 
 
   // Note: You should not use fetch() to call an API route in getStaticProps.
@@ -50,7 +50,7 @@ export async function getStaticProps({
 
   const list = await yamlhandler('listofthree');
 
-  list.push(ssgpageid);
+  list.push(isrpageid);
 
 
   // if not found
@@ -74,11 +74,12 @@ export async function getStaticProps({
     props: {
       list,
     },
+    revalidate: 10, // In seconds
   }
 }
 export async function getStaticPaths() {
 
-  console.log(`ssg/* getStaticPaths() return ssg*(x3)`);
+  console.log(`isr/* getStaticPaths() return isr*(x3)`);
 
   // // Call an external API endpoint to get posts
   // const res = await fetch('https://.../posts')
@@ -87,12 +88,12 @@ export async function getStaticPaths() {
 
   // Get the paths we want to pre-render based on posts
   const paths = [
-    { params: { ssgpageid: 'ssg1' }, },
-    { params: { ssgpageid: 'ssg2' }, },
-    { params: { ssgpageid: 'ssg3' }, },
+    { params: { isrpageid: 'isr1' }, },
+    { params: { isrpageid: 'isr2' }, },
+    { params: { isrpageid: 'isr3' }, },
   ]
 
   // We'll pre-render only these paths at build time.
   // { fallback: false } means other routes should 404.
-  return { paths, fallback: false }
+  return { paths, fallback: 'blocking' }
 }

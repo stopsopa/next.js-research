@@ -2,7 +2,7 @@
  * var r = await fetch('/api/yaml/abc'); console.log(JSON.stringify(await r.json(), null, 4))
  */
 
-const yamlhandler = require('../../../yamlapi/yamlhandler');
+const yamlhandler = eval('require')('../../../yamlapi/yamlhandler');
 
 /**
  * var r = await fetch('/api/yaml/abc'); console.log(await r.json())

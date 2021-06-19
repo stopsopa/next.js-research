@@ -14,7 +14,7 @@ module.exports = {
       },
     ]
   },
-  serverRuntimeConfig: {
+  serverRuntimeConfig: { // not needed: https://nextjs.org/docs/basic-features/data-fetching#reading-files-use-processcwd
     root: __dirname,
   },
 }
