@@ -6,6 +6,11 @@ https://nextjs.org/docs/deployment#docker-image
 getStaticProps (Static Generation)
 https://nextjs.org/docs/basic-features/data-fetching
 
+# testing what is stripped
+https://next-code-elimination.vercel.app
+
+from: https://nextjs.org/docs/basic-features/data-fetching#write-server-side-code-directly
+
 # This demo features
 ## yaml based fake api
 
