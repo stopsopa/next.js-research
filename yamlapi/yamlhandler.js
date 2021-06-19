@@ -7,7 +7,7 @@ const fs = require('fs');
 
 const yaml = require('js-yaml');
 
-import getConfig from 'next/config'
+// const getConfig = require('next/config');
 
 // const yamldir = path.resolve(getConfig().serverRuntimeConfig.root, 'yamlapi');
 const yamldir = path.resolve(process.cwd(), 'yamlapi');

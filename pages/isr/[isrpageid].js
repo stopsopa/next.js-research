@@ -5,8 +5,6 @@ const {
   fetchJson,
 } = require('../../libs/preconfiguredTransport');
 
-const yamlhandler = eval('require')('../../yamlapi/yamlhandler');
-
 export default function Home({
   list,
 }) {
@@ -34,6 +32,8 @@ export default function Home({
 export async function getStaticProps({
   params, // https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation
 }) {
+
+  const yamlhandler = eval('require')(`${process.cwd()}/yamlapi/yamlhandler`);
 
   const isrpageid = params.isrpageid;
 

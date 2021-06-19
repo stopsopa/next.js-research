@@ -5,8 +5,6 @@ const {
   fetchJson,
 } = require('../../libs/preconfiguredTransport');
 
-const yamlhandler = eval('require')('../../yamlapi/yamlhandler');
-
 export default function Home({
   status,
   list,
@@ -35,6 +33,8 @@ export default function Home({
  */
 export async function getServerSideProps({ params, res }) {
 
+  const yamlhandler = eval('require')(`${process.cwd()}/yamlapi/yamlhandler`);
+
   const ssrpageid = params.ssrpageid;
 
   console.log(`ssr/* getServerSideProps() ssrpageid: ${ssrpageid}`);
@@ -61,9 +61,9 @@ export async function getServerSideProps({ params, res }) {
   //
   // Fetching from an external API is fine!
   // from: https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation
-  const list = await fetchJson(`/api/yaml/listofthree`);
+  // const list = await fetchJson(`/api/yaml/listofthree`);
 
-  // const list = await yamlhandler('listofthree');
+  const list = await yamlhandler('listofthree');
 
   list.push(ssrpageid);
 

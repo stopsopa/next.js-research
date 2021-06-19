@@ -42,7 +42,7 @@ function setFetch(PROTOCOL, HOST, PORT) {
 
 if ( isNode ) {
 
-  fakeFetch = require('node-fetch');
+  fakeFetch = eval('require')('node-fetch');
 }
 else {
 
