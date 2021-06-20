@@ -30,8 +30,14 @@ export default function Home({
 
 /**
  * https://nextjs.org/docs/basic-features/pages#server-side-rendering
+ * https://nextjs.org/docs/basic-features/data-fetching#getserversideprops-server-side-rendering
  */
-export async function getServerSideProps({ params, res }) {
+export async function getServerSideProps({ // https://nextjs.org/docs/basic-features/data-fetching#getserversideprops-server-side-rendering
+  params,
+  req,
+  res,
+  query,
+}) {
 
   const yamlhandler = eval('require')(`${process.cwd()}/yamlapi/yamlhandler`);
 

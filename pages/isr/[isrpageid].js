@@ -98,5 +98,5 @@ export async function getStaticPaths() {
 
   // We'll pre-render only these paths at build time.
   // { fallback: false } means other routes should 404.
-  return { paths, fallback: 'blocking' }
+  return { paths, fallback: 'blocking' } // https://nextjs.org/docs/basic-features/data-fetching#fallback-blocking
 }

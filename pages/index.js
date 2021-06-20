@@ -202,6 +202,48 @@ export default function Home() {
           >
             <a>/isr/isr4 - one more</a>
           </Link>
+          <h4 id="isFallback">Fallback pages</h4>
+          <Link
+            href="/isFallback/1"
+            as="/isFallback/1"
+          >
+            <a>/isFallback/1</a>
+          </Link>
+          <br/>
+          <Link
+            href="/isFallback/2"
+            as="/isFallback/2"
+          >
+            <a>/isFallback/2</a>
+          </Link>
+          <br/>
+          <Link
+            href="/isFallback/3"
+            as="/isFallback/3"
+          >
+            <a>/isFallback/3</a>
+          </Link>
+          <br/>
+          <Link
+            href="/isFallback/4"
+            as="/isFallback/4"
+          >
+            <a>/isFallback/4</a>
+          </Link>
+          <br/>
+          <Link
+            href="/isFallback/44"
+            as="/isFallback/44"
+          >
+            <a>/isFallback/44</a>
+          </Link>
+          <hr/>
+          <Link
+            href="/auth"
+            as="/auth?maintain=thisvalue"
+          >
+            <a>/auth?maintain=thisvalue</a>
+          </Link>
         </div>
       </main>
       <footer>

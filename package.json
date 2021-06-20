@@ -8,8 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "cookies": "^0.8.0",
     "inspc": "^0.0.19",
     "js-yaml": "^4.1.0",
+    "jsonwebtoken": "^8.5.1",
     "next": "^10.0.0",
     "nlab": "^0.0.107",
     "node-fetch": "^2.6.1",
