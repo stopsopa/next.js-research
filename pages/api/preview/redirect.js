@@ -2,7 +2,7 @@
 // If this is located at pages/api/preview.js, then
 // open /api/preview from your browser.
 
-// const log = require('inspc');
+const log = require('inspc');
 
 const { token: decoder } = require('../../../libs/jwtCookie');
 
@@ -32,7 +32,7 @@ export default function handler(
   res.setPreviewData({});
 
   // extract what was set
-  const current = res.getHeaderNames().reduce((acc, n) => {
+  const before = res.getHeaderNames().reduce((acc, n) => {
     acc[n] = res.getHeader(n);
     return acc;
   }, {})['set-cookie'];
@@ -45,8 +45,20 @@ export default function handler(
   //   <1> [String]: >__next_preview_data=eyJhbGciOiJIUzI1.....1CeOpqsL8fpZZ7wKnj1oiAcVtVnHq0; Path=/; HttpOnly; SameSite=Lax< len: 432
   // ]
 
+  const after = before.map(
+    v => v
+      .replace(/ HttpOnly;/, '')
+      .replace(/ Secure;/, '')
+      .replace(/ SameSite=None/, ' SameSite=Lex')
+  );
+
+  log.dump({
+    before,
+    after,
+  })
+
   // set again but without httponly
-  res.setHeader('set-cookie', current.map(v => v.replace(/ HttpOnly;/, '')));
+  res.setHeader('set-cookie', after);
 
   // log.dump({
   //   res: res.getHeaderNames().reduce((acc, n) => {
