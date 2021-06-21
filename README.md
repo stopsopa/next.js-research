@@ -32,4 +32,5 @@ You cannot use getStaticPaths [with](https://nextjs.org/docs/basic-features/data
 
 # todo
 - check if preprocessor needed: https://nextjs.org/docs/basic-features/environment-variables#exposing-environment-variables-to-the-browser
+    - it is checked - preprocessor needed
 - remember me checkbox - login form

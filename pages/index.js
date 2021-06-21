@@ -244,6 +244,13 @@ export default function Home() {
           >
             <a>/auth?maintain=thisvalue</a>
           </Link>
+          <hr/>
+          <Link
+            href="/preview"
+            as="/preview"
+          >
+            <a>/preview</a>
+          </Link>
         </div>
       </main>
       <footer>

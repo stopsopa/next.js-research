@@ -1,5 +1,5 @@
 
-// yarn add nlab node-fetch whatwg-fetch
+// yarn add nlab node-fetch cross-fetch
 
 const isNode        = require('nlab/isNode');
 
@@ -48,17 +48,13 @@ else {
 
   (function (old) {
 
-    window.fetch = undefined;
-
-    require("whatwg-fetch");
-
-    const fake = window.fetch;
+    const fetchPolyfill = require('cross-fetch');
 
     fakeFetch = window.fakeFetch = (url, opt) => {
 
       log(`ajax fetch polyfill ${url}`);
 
-      return fake(url, opt);
+      return fetchPolyfill(url, opt);
     };
 
     if (old) {
@@ -143,6 +139,13 @@ const fetchJson = (path, options) => {
 
   return res.then(res => res.json());
 };
+
+if ( ! isNode ) {
+
+  window.fetchData = fetchData;
+
+  window.fetchJson = fetchJson;
+}
 
 module.exports = {
   fetchData,
