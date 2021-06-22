@@ -29,7 +29,10 @@ export default function handler(
   // var cookies = new Cookies(req, res);
 
   // set using original method
-  res.setPreviewData({});
+  res.setPreviewData({
+    previewData: "transported in cookie",
+    time: (new Date()).toISOString(),
+  });
 
   // extract what was set
   const before = res.getHeaderNames().reduce((acc, n) => {

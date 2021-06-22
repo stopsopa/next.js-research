@@ -6,7 +6,7 @@ import Link from 'next/link'
 const {
   fetchJson,
   fetchData,
-} = require('../libs/preconfiguredTransport');
+} = require('../../libs/preconfiguredTransport');
 
 function listCookiesObj() {
   return document.cookie.split(';').reduce((cookies, cookie) => {
@@ -46,11 +46,13 @@ function listenCookieChange(callback, interval = 1000) {
  * https://nextjs.org/docs/advanced-features/preview-mode
  */
 export default function Home({
+  preview,
+  previewData,
 }) {
 
   const [ token, setToken ] = useState(false);
 
-  const [ path, setPath ] = useState('/isr/isr2');
+  const [ path, setPath ] = useState('/preview/render');
 
   const [ loadedPath, setLoadedPath ] = useState({
     i: 0,
@@ -85,6 +87,7 @@ export default function Home({
 
     <div>
       <h1>preview</h1>
+      <p style={{color: 'red'}}>Tip: it is worth to observe command line output in prod mode to see preview in action</p>
       <Link href="/#isr" as="/#isr">
         <a>Home</a>
       </Link>
@@ -102,6 +105,8 @@ export default function Home({
         path: path ? path : false,
         src: (path && token) ? `/api/preview/redirect?path=${encodeURIComponent(path)}&token=${token}`: false,
       }))}>go</button>
+      &nbsp;
+      {(path.trim() && (<a href={path} target="_blank">visit in other tab</a>))}
 
       <br/>
       <h4>cookies:</h4>
