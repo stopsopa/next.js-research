@@ -26,6 +26,10 @@ var r = await fetch('/api/yaml/abc'); console.log(JSON.stringify(await r.json(),
 # passHref
 https://nextjs.org/docs/api-reference/next/link#if-the-child-is-a-function-component
 
+# styled-jsx
+
+https://github.com/vercel/styled-jsx
+
 # tips
 
 You cannot use getStaticPaths [with](https://nextjs.org/docs/basic-features/data-fetching#technical-details-1) getServerSideProps.

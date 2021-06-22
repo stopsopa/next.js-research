@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 
 import Link from 'next/link'
 
+import StyledComponent from '../../components/StyledComponent';
+
 const {
   fetchJson,
   fetchData,
@@ -85,7 +87,7 @@ export default function Home({
 
   return (
 
-    <div>
+    <div className="preview">
       <h1>preview</h1>
       <p style={{color: 'red'}}>Tip: it is worth to observe command line output in prod mode to see preview in action</p>
       <Link href="/#isr" as="/#isr">
@@ -147,6 +149,8 @@ export default function Home({
           style={{border: '1px solid red', width: '90%', height: '400px'}}
         />
       )}
+
+      <StyledComponent />
     </div>
   )
 }
