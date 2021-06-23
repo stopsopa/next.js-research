@@ -5,6 +5,9 @@ import Link from 'next/link'
 
 import StyledComponent from '../../components/StyledComponent';
 
+// will not work
+// import ScssComponent from '../../components/ScssComponent';
+
 const {
   fetchJson,
   fetchData,
@@ -151,6 +154,7 @@ export default function Home({
       )}
 
       <StyledComponent />
+      {/*<ScssComponent />*/}
     </div>
   )
 }

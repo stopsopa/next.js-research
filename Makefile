@@ -7,3 +7,6 @@ dev:
 
 start:
 	/bin/bash start.sh
+
+dstart:
+	/bin/bash docker.sh start
