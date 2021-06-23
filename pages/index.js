@@ -251,6 +251,13 @@ export default function Home() {
           >
             <a>/preview</a>
           </Link>
+          <hr/>
+          <Link
+            href="/images"
+            as="/images"
+          >
+            <a>/images</a>
+          </Link>
         </div>
       </main>
       <footer>

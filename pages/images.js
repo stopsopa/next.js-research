@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 
 import Link from 'next/link'
 
-// import Image from 'next/image'
+import Image from 'next/image'
 
 // doesn't seem to work,
 // I have error
@@ -31,13 +31,6 @@ export default function Images({
       <hr/>
 
       {/*<Image*/}
-      {/*  src="/lima1.jpg"*/}
-      {/*  alt="Picture of the author"*/}
-      {/*  width={500}*/}
-      {/*  height={500}*/}
-      {/*/>*/}
-
-      {/*<Image*/}
       {/*  src={src}*/}
       {/*  alt="Picture of the author"*/}
       {/*  // width={500} automatically provided*/}
@@ -46,6 +39,43 @@ export default function Images({
       {/*  // Optionally allows to add a blurred version of the image while loading*/}
       {/*  // placeholder="blur"*/}
       {/*/>*/}
+      {/*<hr/>*/}
+
+      <Image
+        src="/lima2.jpg"
+        alt="lima2"
+        width={849}
+        height={810}
+      />
+
+      <hr/>
+
+      <Image
+        src="/lima1.jpg"
+        alt="lima1"
+        width={760}
+        height={480}
+      />
+
+      <hr/>
+
+      <Image
+        src="/lima3.jpg"
+        alt="lima3"
+        width={700}
+        height={550}
+      />
+
+      <hr/>
+
+      <Image
+        src="/lima4.jpg"
+        alt="lima4"
+        width={700}
+        height={450}
+      />
+
+      <hr/>
 
     </div>
   )
