@@ -73,26 +73,43 @@ const tool = function (req, res) {
 
             // console.log(`\n\nset cookie...\n\n`);
 
-            cookies.set(opt.name || process.env.NEXT_PUBLIC_JWT_COOKIE_NAME, value, {
-                expires: (function (k) {
+            const _opt = {
+                httpOnly: false
+            }
+
+            if (opt.rememberme) {
+
+                _opt.expires = (function (k) {
                     k.setTime(k.getTime() + ( (opt.expire || NEXT_PUBLIC_JWT_EXPIRE_IN_SEC) * 1000))
                     return k;
-                }(new Date())),
-                httpOnly: false
-            });
+                }(new Date()));
+            }
+
+            cookies.set(opt.name || process.env.NEXT_PUBLIC_JWT_COOKIE_NAME, value, _opt);
 
             return this;
         },
-        setPayload: function (payload) {
-            this.set(jwt.sign(
-                {...payload},
-                process.env.JWT_SECRET,
-                {
-                    // https://github.com/auth0/node-jsonwebtoken#jwtsignpayload-secretorprivatekey-options-callback
-                    // must be int
-                    expiresIn: NEXT_PUBLIC_JWT_EXPIRE_IN_SEC,
+        setPayload: function (payload, rememberme) {
+
+            const _opt = {};
+
+            if (rememberme) {
+
+                // https://github.com/auth0/node-jsonwebtoken#jwtsignpayload-secretorprivatekey-options-callback
+                // must be int
+                _opt.expiresIn = NEXT_PUBLIC_JWT_EXPIRE_IN_SEC;
+            }
+
+            this.set(
+                jwt.sign(
+                    {...payload},
+                    process.env.JWT_SECRET,
+                    _opt,
+                ),
+            {
+                    rememberme,
                 }
-            ));
+            );
         },
         del: function () {
             return this.set('delete-this-cookie', {

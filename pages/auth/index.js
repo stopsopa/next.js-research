@@ -62,10 +62,11 @@ export default function Home({
 
         <input type="hidden" name="_auth" defaultValue="login" />
 
+        <label>
+          <input type="checkbox" name="remember" /> Remember me
+        </label>
+        <br/>
         <button type="submit">Login</button>
-        {/*<label>*/}
-        {/*  <input type="checkbox" checked="checked" name="remember"> Remember me*/}
-        {/*</label>*/}
 
         {/*<div className="container" style="background-color:#f1f1f1">*/}
         {/*  <button type="button" className="cancelbtn">Cancel</button>*/}
@@ -105,6 +106,7 @@ export async function getServerSideProps({ // https://nextjs.org/docs/basic-feat
   const form = {
     username: '',
     password: '',
+    remember: false,
   };
 
   let user = cookie.getVerifiedPayloadStripped() || false;
@@ -146,6 +148,7 @@ export async function getServerSideProps({ // https://nextjs.org/docs/basic-feat
       const {
         username,
         password,
+        remember,
         _auth,
       } = await streamPromise;
 
@@ -163,7 +166,7 @@ export async function getServerSideProps({ // https://nextjs.org/docs/basic-feat
           form.password = password;
         }
 
-        const authenticated = true; // is user authenticated - to implement
+        const authenticated = true; // is user authenticated - bit to implement
 
         if (authenticated) {
 
@@ -171,7 +174,7 @@ export async function getServerSideProps({ // https://nextjs.org/docs/basic-feat
 
           user = form;
 
-          cookie.setPayload(user);
+          cookie.setPayload(user, remember !== undefined);
 
           if (req.method !== 'GET') {
 
