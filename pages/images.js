@@ -11,8 +11,9 @@ import Image from 'next/image'
 // #15 8.240 You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders
 // #15 8.240 (Source code omitted for this binary file)
 // : https://github.com/vercel/next.js/issues/9209
+// fixed with next update to "^11.0.1"
 
-// import src from '../public/lima4.png'
+import lima4 from '../public/lima4.png'
 
 /**
  * https://nextjs.org/docs/advanced-features/preview-mode
@@ -29,17 +30,6 @@ export default function Images({
       </Link>
 
       <hr/>
-
-      {/*<Image*/}
-      {/*  src={src}*/}
-      {/*  alt="Picture of the author"*/}
-      {/*  // width={500} automatically provided*/}
-      {/*  // height={500} automatically provided*/}
-      {/*  // blurDataURL="data:..." automatically provided*/}
-      {/*  // Optionally allows to add a blurred version of the image while loading*/}
-      {/*  // placeholder="blur"*/}
-      {/*/>*/}
-      {/*<hr/>*/}
 
       <Image
         src="/lima2.jpg"
@@ -73,6 +63,17 @@ export default function Images({
         alt="lima4"
         width={700}
         height={450}
+      />
+
+      <hr/>
+
+      <h4>Using <a href="https://nextjs.org/docs/basic-features/image-optimization#image-imports">import</a></h4>
+      <Image
+        data-auto="true"
+        width={700}
+        height={450}
+        src={lima4}
+        alt="lima4"
       />
 
       <hr/>
