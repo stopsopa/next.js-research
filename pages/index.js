@@ -258,6 +258,13 @@ export default function Home() {
           >
             <a>/images</a>
           </Link>
+          <hr/>
+          <Link
+            href="/scripts"
+            as="/scripts"
+          >
+            <a>/scripts</a>
+          </Link>
         </div>
       </main>
       <footer>
