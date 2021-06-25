@@ -265,6 +265,13 @@ export default function Home() {
           >
             <a>/scripts</a>
           </Link>
+          <hr/>
+          <Link
+            href="/dynamic"
+            as="/dynamic"
+          >
+            <a>/dynamic</a>
+          </Link>
         </div>
       </main>
       <footer>
