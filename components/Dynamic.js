@@ -1,5 +1,5 @@
 
-export default () => {
+const Dynamic = () => {
 
   window.test = true;
 
@@ -7,3 +7,5 @@ export default () => {
     <div>Dynamic component rendered</div>
   )
 }
+
+export default Dynamic
