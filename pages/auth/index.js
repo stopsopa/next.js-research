@@ -7,7 +7,7 @@ const {
 
 import log from 'inspc';
 
-import qs from 'querystring';
+import xWwwFormUrlencoded from '../../libs/xWwwFormUrlencoded';
 
 import jwtCookie from '../../libs/jwtCookie';
 
@@ -116,32 +116,7 @@ export async function getServerSideProps({ // https://nextjs.org/docs/basic-feat
     console.log('user: from cookie');
   }
 
-  // log.dump({
-  //   headers: req.headers['content-type'],
-  //   eq: req.headers['content-type'] === 'application/x-www-form-urlencoded'
-  // })
-  // <host> [String]: >lh:3001< len: 7
-  // <connection> [String]: >keep-alive< len: 10
-  // <content-length> [String]: >42< len: 2
-  // <pragma> [String]: >no-cache< len: 8
-  // <cache-control> [String]: >no-cache< len: 8
-  // <upgrade-insecure-requests> [String]: >1< len: 1
-  // <content-type> [String]: >application/x-www-form-urlencoded< len: 33
-
-  if (req.headers['content-type'] === 'application/x-www-form-urlencoded') {
-
-    const streamPromise = new Promise( ( resolve, reject ) => {
-
-      let postBody = '';
-
-      req.on( 'data', ( data ) => {
-        postBody += data.toString();
-      });
-
-      req.on( 'end', () => {
-        resolve(qs.parse( postBody ));
-      } );
-    } );
+  if (xWwwFormUrlencoded.check(req)) {
 
     try {
 
@@ -150,7 +125,7 @@ export async function getServerSideProps({ // https://nextjs.org/docs/basic-feat
         password,
         remember,
         _auth,
-      } = await streamPromise;
+      } = await xWwwFormUrlencoded(req);
 
       if ( ! user && _auth === 'login') {
 
