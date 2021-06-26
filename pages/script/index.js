@@ -12,7 +12,6 @@ export default function Scr({
 }) {
 
   return (
-
     <div className="preview">
       <h1>Script</h1>
       <Link href="/" as="/">
@@ -33,7 +32,7 @@ export default function Scr({
       <Script />
       <Script strategy="lazyOnload">
         {`console && console.log && console.log('Inline Scripts')`}
-      </Script>
+      </Script>`
     </div>
   )
 }
