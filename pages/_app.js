@@ -19,3 +19,7 @@ export default function MyApp({ Component, pageProps }) {
     </div>
   )
 }
+
+export function reportWebVitals(metric) {
+  console.log('metric', metric)
+}

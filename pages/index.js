@@ -272,6 +272,13 @@ export default function Home() {
           >
             <a>/dynamic</a>
           </Link>
+          <hr/>
+          <Link
+            href="/rewrite"
+            as="/rewrite"
+          >
+            <a>/rewrite</a>
+          </Link>
         </div>
       </main>
       <footer>
