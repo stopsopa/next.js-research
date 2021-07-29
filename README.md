@@ -30,6 +30,9 @@ https://nextjs.org/docs/api-reference/next/link#if-the-child-is-a-function-compo
 
 https://github.com/vercel/styled-jsx
 
+# getInitialProps
+https://www.datocms.com/blog/how-the-new-next-js-9-3-preview-mode-works
+
 # tips
 
 You cannot use getStaticPaths [with](https://nextjs.org/docs/basic-features/data-fetching#technical-details-1) getServerSideProps.
